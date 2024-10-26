@@ -65,7 +65,13 @@ The app uses `useReducer` for state management with the following states:
 
 ## API
 
-The app expects the quiz questions API to be available at `http://localhost:8000/questions`. The questions should have the following structure:
+The app uses `json-server` to serve the quiz questions as a mock API. To set up `json-server`, install it globally or as a dev dependency:
+
+```bash
+npm install -g json-server
+```
+
+Create a questions.json file with your questions, structured as follows:
 
 ```json
 [
@@ -76,4 +82,10 @@ The app expects the quiz questions API to be available at `http://localhost:8000
     "points": 10
   }
 ]
+```
+
+Run the JSON server with:
+
+```bash
+json-server --watch db.json --port 8000
 ```
