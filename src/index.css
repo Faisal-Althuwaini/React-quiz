@@ -1,11 +1,11 @@
 :root {
-  --color-darkest: #343a40;
-  --color-dark: #495057;
+  --color-darkest: #121212;
+  --color-dark: #383838;
   --color-medium: #ced4da;
   --color-light: #f1f3f5;
 
-  --color-theme: #1098ad;
-  --color-accent: #ffa94d;
+  --color-theme: #347928;
+  --color-accent: #a04747;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
@@ -27,6 +27,7 @@ body {
   color: var(--color-light);
   background-color: var(--color-darkest);
   padding: 3.2rem;
+  opacity: 1;
 }
 
 .app {
@@ -34,18 +35,26 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .main {
   width: 50rem;
+  max-width: 100%;
 }
 
 .app-header {
   width: 66rem;
+  max-width: 100%;
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+}
+
+.app-header h1 {
+  padding-top: 20px;
 }
 
 .error {
@@ -59,22 +68,26 @@ body {
 
 img {
   width: 14rem;
+  max-width: 100%;
 }
 
 h1 {
   font-family: "Codystar";
   font-size: 5.6rem;
+  text-align: center;
 }
 
 h2 {
   font-size: 3.6rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 h3 {
   font-size: 2.4rem;
   font-weight: 600;
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 h4 {
@@ -149,11 +162,19 @@ progress {
   flex-direction: column;
   gap: 1.2rem;
   margin-bottom: 3.2rem;
+  direction: ltr;
+}
+
+.question {
+  direction: ltr;
 }
 
 .btn-option {
   width: 100%;
   text-align: left;
+}
+.btn-finish {
+  margin: 0 auto;
 }
 
 .btn-option.correct {
@@ -167,6 +188,21 @@ progress {
   color: var(--color-darkest);
 }
 
+.btn-selected {
+  background-color: var(--color-darkest);
+  color: var(--color-light);
+  border: 0.5px var(--color-light) solid;
+}
+
+.btn-start {
+  margin-top: 30px;
+}
+
+.topic-buttons button {
+  margin-inline: 20px;
+  width: 15rem;
+  height: 15rem;
+}
 .answer {
   transform: translateX(2rem);
 }
@@ -180,6 +216,18 @@ progress {
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1.6rem;
+}
+
+.icon {
+  height: 80px;
+  width: 80px;
+}
+
+.btn-topic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .result span {
@@ -199,7 +247,6 @@ progress {
   align-items: center;
   margin-top: 4rem;
   gap: 1.6rem;
-
   color: var(--color-medium);
   font-size: 1.4rem;
 }
@@ -213,7 +260,81 @@ progress {
   border-radius: 100px;
 }
 
-/* CREDIT: https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+#footer {
+  padding-top: 30px;
+  font-size: 1.5rem;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .main {
+    width: 90%;
+  }
+
+  .app-header {
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2.2rem;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+  }
+
+  .timer {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 2.6rem;
+  }
+
+  .btn {
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+  }
+
+  .timer {
+    font-size: 2.5rem;
+    padding: 1rem 3rem;
+  }
+}
+
+/* Loader Animation */
 .loader {
   width: 50px;
   height: 24px;
@@ -241,8 +362,7 @@ progress {
   }
 }
 
-/* ********** */
-/* First counter example */
+/* Counter Component */
 .counter {
   display: flex;
   flex-direction: column;

@@ -12,16 +12,18 @@ function FinishedScreen({ points, maxPoints, highscore, dispatch }) {
   return (
     <>
       <p className="result">
-        <span>{emoji}</span> You scored <strong>{points}</strong> out of{" "}
-        {maxPoints} ({Math.ceil(percentage)}%)
+        {/* <span>{emoji}</span> You scored <strong>{points}</strong> out of{" "}
+        {maxPoints} ({Math.ceil(percentage)}%) */}
+        جبت <strong>{points}</strong> نقطه من {maxPoints} (
+        {Math.ceil(percentage)}%) <span>{emoji}</span>
       </p>
 
-      <p className="highscore">(Highscore : {highscore} points)</p>
+      <p className="highscore">(اعلى نقاط جبته : {highscore} نقطه)</p>
       <button
-        className="btn btn-ui"
+        className="btn btn-finish"
         onClick={() => dispatch({ type: "restart" })}
       >
-        Restart
+        اعد الكويز
       </button>
     </>
   );
