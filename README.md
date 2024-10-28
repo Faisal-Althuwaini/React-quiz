@@ -58,8 +58,7 @@ fetch(`https://questions-1.onrender.com/${selectedTopic}`);
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/quiz-app.git
-   cd quiz-app
+   git clone https://github.com/Faisal-Althuwaini/React-quiz.git
    ```
 
 2. Install dependencies:
