@@ -11,6 +11,10 @@
 # production
 /build
 
+/build-vorkuta
+
+/data
+
 # misc
 .DS_Store
 .env.local
@@ -23,3 +27,4 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/components/versions
+

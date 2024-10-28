@@ -1,91 +1,98 @@
-# React Quiz Website
+# Quiz App
 
-This is a simple and interactive quiz application built using React. The app fetches quiz questions from an API, and users can answer questions to score points. The app keeps track of the user's high score and provides different screens depending on the state of the quiz.
+A responsive quiz application built with React that allows users to select a topic, answer questions, and track their progress and score in real-time. The app includes a timer for each question and saves the user's high score.
 
 ## Features
 
-- **Start Screen**: Displays the number of questions and allows the user to start the quiz.
-- **Questions**: Presents questions with answer options, awarding points for correct answers.
-- **Progress Tracking**: Shows current progress and scores.
-- **Error and Loading Handling**: Displays loaders and error messages as necessary.
-- **Finished Screen**: Summarizes the user's score and their high score.
-- **Restart Quiz**: Option to restart the quiz and try again.
+- **Dynamic Topic Selection**: Users can choose a quiz topic, which dynamically loads questions for the selected topic from an external API.
+- **Timer**: A countdown timer is implemented for each question, with the quiz ending if the timer reaches zero.
+- **State Management**: `useReducer` is used for handling complex application state changes.
+- **Responsive Design**: Styled with pure CSS for a responsive and visually appealing interface.
+- **Error Handling**: Handles API errors gracefully by showing an error message if questions cannot be fetched.
 
-## Screenshots
+## Components
 
-![Start Screen](./screenshots/start_screen.png)
-![Question Screen](./screenshots/question_screen.png)
-![Finished Screen](./screenshots/finished_screen.png)
+- **App**: Root component that initializes state, handles data fetching, and manages the main application flow.
+- **Header**: Displays the header content of the app.
+- **Main**: Wraps the main content of the app.
+- **Loader**: A loading spinner displayed while fetching data.
+- **Error**: Displays an error message when data fetching fails.
+- **StartScreen**: Initial screen where users can select a topic to start the quiz.
+- **Question**: Displays each question along with answer options.
+- **NextQuestion**: Button for moving to the next question.
+- **Progress**: Shows the current progress of the quiz, including points and remaining questions.
+- **FinishedScreen**: Final screen displaying the user’s score and high score.
+- **Timer**: Countdown timer for each question.
+- **Footer**: Contains the timer and next question components.
 
-## Installation
+## State Management
+
+The app uses a `useReducer` hook with the following actions:
+
+- `dataReceived`: Updates the state when questions are successfully fetched.
+- `dataFailed`: Updates the state when fetching data fails.
+- `start`: Starts the quiz, initializing the countdown.
+- `newAnswer`: Updates the state when a user submits an answer.
+- `nextQuestion`: Moves to the next question in the quiz.
+- `finish`: Ends the quiz, updating the high score if applicable.
+- `restart`: Resets the quiz state for a new game.
+- `tick`: Decrements the timer countdown.
+- `selectTopic`: Sets the selected quiz topic and triggers data fetching.
+
+## API Integration
+
+Questions are fetched from an API based on the selected topic:
+
+```javascript
+fetch(`https://questions-1.onrender.com/${selectedTopic}`);
+```
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+
+### Installation
 
 1. Clone the repository:
 
-   ```
-   git clone https://github.com/yourusername/react-quiz-website.git
-   cd react-quiz-website
+   ```bash
+   git clone https://github.com/your-username/quiz-app.git
+   cd quiz-app
    ```
 
 2. Install dependencies:
 
-```
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-```
-npm start
-```
+The application will be available at `http://localhost:3000`.
 
-4. Ensure the quiz API is running locally at http://localhost:8000/questions. You can adjust the API endpoint if needed.
+### Deployment
 
-## Project Structure
-
-- **App.js**: Main application logic with `useReducer` for state management and `useEffect` to fetch quiz data.
-- **Components**:
-  - **Header**: Displays the app header.
-  - **Main**: Wrapper for the main content.
-  - **Loader** & **Error**: Show loading and error states.
-  - **StartScreen**: Initial screen to start the quiz.
-  - **Question**: Renders each question and answer options.
-  - **NextQuestion**: Button for moving to the next question.
-  - **Progress**: Displays the current progress, score, and max points.
-  - **FinishedScreen**: Shows the final score and high score on completion.
-
-## State Management
-
-The app uses `useReducer` for state management with the following states:
-
-- **loading**: Fetching data from the API.
-- **ready**: Quiz ready to start.
-- **active**: Quiz is ongoing.
-- **finished**: Quiz completed.
-- **error**: Error occurred during data fetching.
-
-## API
-
-The app uses `json-server` to serve the quiz questions as a mock API. To set up `json-server`, install it globally or as a dev dependency:
+For deployment, build the application:
 
 ```bash
-npm install -g json-server
+npm run build
 ```
 
-Create a questions.json file with your questions, structured as follows:
+## Technologies Used
 
-```json
-[
-  {
-    "question": "Sample question?",
-    "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-    "correctOption": 1,
-    "points": 10
-  }
-]
-```
+- **React**: Frontend library for building user interfaces.
+- **Pure CSS**: Used for styling without any CSS frameworks.
+- **Fetch API**: Used to retrieve questions from an external API.
 
-Run the JSON server with:
+## License
 
-```bash
-json-server --watch db.json --port 8000
-```
+This project is licensed under the MIT License.
+
+## Author
+
+Developed by [Faisal Al-Thuwaini](https://www.linkedin.com/in/faisal-al-thuwaini/).

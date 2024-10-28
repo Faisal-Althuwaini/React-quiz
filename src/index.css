@@ -165,6 +165,11 @@ progress {
   direction: ltr;
 }
 
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
 .question {
   direction: ltr;
 }
@@ -312,11 +317,11 @@ progress {
   }
 
   h2 {
-    font-size: 2.8rem;
+    font-size: 4rem;
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   h4 {
@@ -331,6 +336,10 @@ progress {
   .timer {
     font-size: 2.5rem;
     padding: 1rem 3rem;
+  }
+
+  .topic-buttons {
+    display: flex;
   }
 }
 

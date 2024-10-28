@@ -164,7 +164,16 @@ function App() {
       </Main>
 
       <footer id="footer">
-        Developed by : <strong>Faisal althuwaini</strong>
+        Developed by :{" "}
+        <strong>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/faisal-al-thuwaini/"
+            rel="noreferrer"
+          >
+            Faisal althuwaini
+          </a>
+        </strong>
       </footer>
     </div>
   );
